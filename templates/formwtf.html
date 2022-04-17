@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card my-5">
+    <div class="card-body">
+        <form method="POST" action="{{url_for('form2')}}">
+            {{ form.csrf_token }}
+            {{ form.name.label }} {{ form.name(size=20) }}
+          
+            <input type="submit" value="ตกลง">
+        </form>
+        <p class="mt-3">Result </p>
+   
+        {% if name %}
+        <pre class="text-success">
+        <strong>{{name}}</strong>
+        </pre>
+        {% else %}
+        <pre class="text-danger">
+        <strong> ไม่พบข้อมูล </strong>
+        {% endif %}
+        </pre>
+    </div>
+</div>
+{% endblock %}
